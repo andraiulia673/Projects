@@ -1,0 +1,127 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"poppins",sans-serif;
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+.container{
+    position: relative;
+    z-index: 1;
+    background:#7c6861;
+    width:450px;
+    height: 470px;
+    padding:1.5rem;
+    margin:50px 0px 50px 50px;
+    border-radius:10px;
+    box-shadow:0 20px 35px rgba(0,0,1,0.9);
+}
+
+form{
+    margin:0 2rem;
+}
+
+.form-title{
+    font-size:1.5rem;
+    font-weight:bold;
+    text-align:center;
+    padding:1.3rem;
+    margin-top:0.5rem;
+    margin-bottom:1rem;
+}
+
+input{
+    color:inherit;
+    width:100%;
+    background-color:transparent;
+    border:none;
+    border-bottom:1px solid #000000;
+    padding-left:1.5rem;
+    font-size:15px;
+    
+}
+
+.input-group{
+    padding:1% 0;
+    position:relative;
+    margin-bottom: 1rem; 
+
+}
+
+.input-group i{
+    position:absolute;
+    color:black;
+}
+
+input:focus{
+    background-color: transparent;
+    outline:transparent;
+    border-bottom:2px solid hsl(0, 0%, 0%);
+}
+
+input::placeholder{
+    color:transparent;
+}
+
+label{
+    color:#000000;
+    position:relative;
+    left:1.2em;
+    top:-1.3em;
+    cursor:auto;
+    transition:0.3s ease all;
+}
+
+input:focus~label,input:not(:placeholder-shown)~label{
+    top:-3em;
+    color:hsl(0, 0%, 0%);
+    font-size:15px;
+}
+
+.btn{
+    font-size:1.1rem;
+    padding:8px 0;
+    border-radius:5px;
+    outline:none;
+    border:none;
+    width:100%;
+    background:#4a3e3a;
+    color:rgb(0, 0, 0);
+    cursor:pointer;
+    transition:0.2s;
+}
+.btn:hover{
+    background:#bea599;
+}
+
+.links{
+    display:flex;
+    justify-content:space-around;
+    padding:0 4rem;
+    margin-top:1.5rem;
+    font-weight:bold;
+}
+
+button{
+    color:rgb(0, 0, 0);
+    border:none;
+    background-color:transparent;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+button:hover{
+    text-decoration:underline;
+    color:#4a3e3a;
+}
