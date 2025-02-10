@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upload CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container my-3">
+    <h1 class="text-center mb-3">CV</h1>
+
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+    <!-- daca cv ul nu e incarcat nu avem optiunea de descarcare sau stergere -->
+    <div th:if="${fotomodel.cvPath == null}">
+        <form action="/fotomodele/upload-cv" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" th:value="${fotomodel.id}"/>
+
+            <div class="mb-3">
+                <label for="cvFile" class="form-label">Alegeți un fișier CV</label>
+                <input type="file" class="form-control" id="cvFile" name="cvFile"/>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Încarcă CV</button>
+        </form>
+    </div>
+
+    <!-- daca cv ul e deja incarcat nu mai putem incarca altul -->
+    <div th:if="${fotomodel.cvPath != null}">
+        <h3 class="mt-4">CV deja încărcat:</h3>
+        <a th:href="@{/fotomodele/download-cv(id=${fotomodel.id})}" class="btn btn-info btn-sm">Descarcă CV</a>
+        <form th:action="@{/fotomodele/delete-cv(id=${fotomodel.id})}" method="post" style="display:inline-block;">
+            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Șterge CV</button>
+        </form>
+    </div>
+
+    <br>
+    <a href="/fotomodele" class="btn btn-secondary">Înapoi la lista fotomodelelor</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
